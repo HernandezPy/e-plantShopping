@@ -218,28 +218,6 @@ function ProductList({ onHomeClick }) {
             ]
         }
     ];
-    const styleObj = {
-        backgroundColor: '#306c32',
-        color: '#fff!important',
-        padding: '15px',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        fontSize: '20px',
-    }
-    const styleObjUl = {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: '1100px',
-    }
-    const styleA = {
-        color: 'white',
-        fontSize: '30px',
-        textDecoration: 'none',
-        marginLeft: '300px',
-    }
-
     const handleHomeClick = (e) => {
         e.preventDefault();
         onHomeClick();
@@ -271,23 +249,25 @@ function ProductList({ onHomeClick }) {
 
     return (
         <div>
-            <div className="navbar" style={styleObj}>
+            <div className="navbar">
                 <div className="tag">
                     <div className="luxury">
                         <img src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png" alt="" />
-                        <a href="/" onClick={(e) => handleHomeClick(e)}>
+                        <a className="brand-link" href="/" onClick={(e) => handleHomeClick(e)}>
                             <div>
-                                <h3 style={{ color: 'white' }}>Paradise Nursery</h3>
-                                <i style={{ color: 'white' }}>Where Green Meets Serenity</i>
+                                <h3>Paradise Nursery</h3>
+                                <i>Where Green Meets Serenity</i>
                             </div>
                         </a>
                     </div>
 
                 </div>
-                <div style={styleObjUl}>
-                    <div> <a href="#" onClick={(e) => handlePlantsClick(e)} style={styleA}>Plants</a></div>
+                <div className="nav-center">
+                    <a className="nav-link" href="#" onClick={(e) => handlePlantsClick(e)}>Plants</a>
+                </div>
+                <div className="nav-actions">
                     <div>
-                        <a href="#" onClick={(e) => handleCartClick(e)} style={styleA}>
+                        <a className="nav-link" href="#" onClick={(e) => handleCartClick(e)}>
                             <h1 className='cart'>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="IconChangeColor" height="68" width="68">
                                     <rect width="156" height="156" fill="none"></rect>
@@ -304,7 +284,7 @@ function ProductList({ onHomeClick }) {
             {!showCart ? (
                 <div className="product-grid">
                     {plantsArray.map((categoryData) => (
-                        <div key={categoryData.category}>
+                        <div className="category-section" key={categoryData.category}>
                             <div className="plantname_heading">
                                 <h2 className="plant_heading">{categoryData.category}</h2>
                             </div>
